@@ -1,7 +1,8 @@
 import { Component } from "@angular/core";
+// single line, multi line, separate file
 
 @Component({
     selector: 'app-home',
-    template: '<h1>Home Page</h1>'
+    templateUrl: './home.html'
 })
 export class HomeComponent { }
