@@ -2,44 +2,73 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-root',
-    template: `<h1 [class.fg]="message">Hello Angular</h1>
+    template: ` 
+        <h1 [ngClass]="cls">This is a heading</h1>
 
-        <h3>{{message}}</h3>
-        <input type="text" [(ngModel)]="message"/>
+        <table border="1" [ngStyle]="styles">
+            <tr>
+                <td>Value</td>
+                <td>Index</td>
+                <td>Even</td>
+                <td>Odd</td>
+                <td>First</td>
+                <td>Last</td>
+            </tr>
+            <tr [ngClass]="{cls1:evn,cls2:odd}" 
+            *ngFor="let val of vals;let idx=index;let evn=even;let odd=odd;let fst=first;let lst=last">
+                <td>{{val}}</td>
+                <td>{{idx}}</td>
+                <td>{{evn}}</td>
+                <td>{{odd}}</td>
+                <td>{{fst}}</td>
+                <td>{{lst}}</td>
+            </tr>
+        </table>
 
-
-        <button [disabled]="message">Button</button>
-
-        <button (click)="onClick(1)">Click me</button>
-
-        <h1>{{1+2}}</h1>
-        <h1>{{"Mujib" +" Rahman"}}</h1>
+        <div [ngSwitch]="age">
+            <h3 *ngSwitchCase="10">You are a kid</h3>
+            <h3 *ngSwitchCase="20">You are young</h3>
+            <h3 *ngSwitchCase="30">You are still young</h3>
+            <h3 *ngSwitchDefault>You rock!</h3>
+        </div>
         
 
-        <h3 [style.border]="message?'1px solid green':'none'">{{getMsg()}}</h3>
-
-        {{message?"Yes":"No"}}
+        <div *ngIf="message">
+            <h1>This is a heading</h1>
+            <h1>another heading</h1>
+            <h1>...</h1>
+            <div>
+            </div>
+        </div>
+        
+        <button (click)="toggle()">Toggle</button>
     `
 })
 export class AppComponent {
-    message: string = "Hello world1111";
+    styles = {
+        border: '3px solid green',
+        'border-radius': '10px'
+    };
+    message: boolean = true;
+    vals: number[] = [1, 2, 3, 4, 5, 6];
+    age: number = 0;
+    cls: any = { fg: true, bg: false };
+    //string,string[],object
+    toggle() {
+        this.message = !this.message;
 
-    //truthy
-    //falsy: 0,undefined,null,"",false,NaN
-
-    getMsg(): string {
-        //side effects
-        return "Hello!!";
-    }
-
-    onClick(param) {
-        console.log("Button clicked", param);
+        // let age=20;
+        // switch(age){
+        //     case 10:
+        //     break;
+        //     case 20:
+        //     break;
+        //     default:
+        //     break;
+        // }
     }
 }
 
-//1.expressions or interpolation {{}}
-//2.Property binding []
-//3.Event binding   ()
-//4.Class Binding   []
-//5.Style binding   []
-//6.Two way binding
+
+//ngIf,ngSwitch, ngFor, ngModel, ngClass and ngStyle
+// attribute directives and structural directives
