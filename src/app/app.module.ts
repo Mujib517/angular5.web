@@ -1,15 +1,19 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from "./home/home.component";
 import { ProductListComponent } from "./product-list/product-list.component";
 import { ProductComponent } from "./product/product.component";
 import { TimePipe } from "./shared/time.pipe";
+import { UsersComponent } from "./users/users.component";
 
 @NgModule({
-    imports: [BrowserModule, FormsModule],
-    declarations: [AppComponent, HomeComponent, ProductListComponent, ProductComponent,TimePipe],
+    imports: [BrowserModule, FormsModule,HttpClientModule],
+    declarations: [AppComponent, HomeComponent,
+        ProductListComponent, ProductComponent, TimePipe, UsersComponent],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
