@@ -7,7 +7,7 @@ import * as moment from 'moment';
     <div>{{product.model | lowercase}}</div>
     <div>{{product.price | currency}}</div>
     <div>{{product.lastUpdated | date:'MM-dd-yyyy hh:mm:ss a'}}</div>
-    <div>{{getRelativeTime(product.lastUpdated)}}</div>
+    <div>{{product.lastUpdated | time}}</div>
     `
 })
 export class ProductComponent {
@@ -16,9 +16,5 @@ export class ProductComponent {
     product: any;
 
     constructor() {
-    }
-
-    getRelativeTime(date): string {
-        return moment(date).fromNow();
     }
 }
