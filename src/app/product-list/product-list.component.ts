@@ -23,7 +23,9 @@ export class ProductListComponent {
         let svc = new ProductService(http);
 
         svc.get().subscribe(
-            (res) => this.products = res["data"]
+            (res) => this.products = res["data"],
+            (err) => console.log(err),
+            () => console.log("completed")
         );
     }
 }
