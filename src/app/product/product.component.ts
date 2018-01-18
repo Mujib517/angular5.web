@@ -1,5 +1,6 @@
 import { Component, Input } from "@angular/core";
 import * as moment from 'moment';
+import { ConsoleLogger } from "../shared/console.logger";
 
 @Component({
     selector: 'app-product',
@@ -15,6 +16,7 @@ export class ProductComponent {
     @Input()
     product: any;
 
-    constructor() {
+    constructor(logger: ConsoleLogger) {
+        logger.error("Component took a long time to load");
     }
 }

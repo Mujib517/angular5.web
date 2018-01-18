@@ -19,10 +19,11 @@ import { ProductService } from "../shared/product.service";
 export class ProductListComponent {
     products: any[];
 
-    constructor(private http: HttpClient) {
-        let svc = new ProductService(http);
+    constructor(svc: ProductService) {
 
-        svc.get().subscribe(
+        let obs = svc.get();
+
+        obs.subscribe(
             (res) => this.products = res["data"],
             (err) => console.log(err),
             () => console.log("completed")

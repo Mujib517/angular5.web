@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from "./home/home.component";
 import { ProductListComponent } from "./product-list/product-list.component";
 import { ProductComponent } from "./product/product.component";
-import { TimePipe } from "./shared/time.pipe";
 import { UsersComponent } from "./users/users.component";
+import { ProductService } from "./shared/product.service";
+import { SharedModule } from "./shared/shared.module";
+
 
 @NgModule({
-    imports: [BrowserModule, FormsModule,HttpClientModule],
+    imports: [BrowserModule, FormsModule, HttpClientModule, SharedModule],
     declarations: [AppComponent, HomeComponent,
-        ProductListComponent, ProductComponent, TimePipe, UsersComponent],
+        ProductListComponent, ProductComponent, UsersComponent],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
