@@ -3,9 +3,14 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'app-root',
     template: `
-    <app-home></app-home>
-    
-    <app-product-list></app-product-list>
+    <app-header></app-header>
+
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+
+   <app-footer></app-footer>
+   
     `
 })
 export class AppComponent {
