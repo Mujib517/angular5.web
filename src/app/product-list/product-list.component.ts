@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import * as moment from 'moment';
 import { HttpClient } from "@angular/common/http";
 import { ProductService } from "../shared/product.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
     selector: 'app-product-list',
@@ -19,15 +20,15 @@ import { ProductService } from "../shared/product.service";
 export class ProductListComponent {
     products: any[];
 
-    constructor(svc: ProductService) {
+    constructor(svc: ProductService, private activatedRoute: ActivatedRoute) {
+        this.products = this.activatedRoute.snapshot.data.products.data;
+        // let obs = svc.get();
 
-        let obs = svc.get();
-
-        obs.subscribe(
-            (res) => this.products = res["data"],
-            (err) => console.log(err),
-            () => console.log("completed")
-        );
+        // obs.subscribe(
+        //     (res) => this.products = res["data"],
+        //     (err) => console.log(err),
+        //     () => console.log("completed")
+        // );
     }
 }
 
