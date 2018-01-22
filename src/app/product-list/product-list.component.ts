@@ -7,7 +7,12 @@ import { ActivatedRoute } from "@angular/router";
 @Component({
     selector: 'app-product-list',
     template: `
+
+    <div>
      <h1>Products</h1>
+     <a class="btn btn-primary" routerLink="/products/new">Add New Product</a>
+    </div>
+    
      <div class="col-md-7">
         <div *ngFor="let prd of products" class="well">
             <app-product [product]="prd"></app-product>

@@ -8,6 +8,7 @@ import { ProductDetailComponent } from "../product-detail/product-detail.compone
 import { ProductResolver } from "./product.resolver";
 import { SpecsComponent } from "../specs/specs.component";
 import { ReviewsComponent } from "../reviews/reviews.component";
+import { NewProductComponent } from "../new-product/new-product.component";
 
 const CHILD_ROUTES: Route[] = [
     { path: 'specs', component: SpecsComponent},
@@ -21,6 +22,7 @@ const ROUTES: Route[] =
         { path: 'about', component: AboutComponent },
         { path: 'contact', component: ContactComponent },
         { path: 'products', component: ProductListComponent, resolve: { products: ProductResolver } },
+        { path: 'products/new', component: NewProductComponent},
         { path: 'products/:id', component: ProductDetailComponent, children: CHILD_ROUTES },
         { path: '**', component: HomeComponent }
     ];
