@@ -16,12 +16,14 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { AppRouterModule } from "./shared/app-router.module";
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { SpecsComponent } from './specs/specs.component';
+import { ReviewsComponent } from './reviews/reviews.component';
 
 
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpClientModule, SharedModule,AppRouterModule],
     declarations: [AppComponent, HomeComponent,
-        ProductListComponent, ProductComponent, UsersComponent, HeaderComponent, FooterComponent, AboutComponent, ContactComponent, ProductDetailComponent],
+        ProductListComponent, ProductComponent, UsersComponent, HeaderComponent, FooterComponent, AboutComponent, ContactComponent, ProductDetailComponent, SpecsComponent, ReviewsComponent],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
