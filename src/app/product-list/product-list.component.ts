@@ -15,7 +15,7 @@ import { ActivatedRoute } from "@angular/router";
     
      <div class="col-md-7">
         <div *ngFor="let prd of products" class="well">
-            <app-product [product]="prd"></app-product>
+            <app-product [product]="prd" (notify)="onNotify($event)"></app-product>
         </div>
     </div>
    
@@ -25,15 +25,23 @@ import { ActivatedRoute } from "@angular/router";
 export class ProductListComponent {
     products: any[];
 
-    constructor(svc: ProductService, private activatedRoute: ActivatedRoute) {
+    constructor(private svc: ProductService, private activatedRoute: ActivatedRoute) {
         this.products = this.activatedRoute.snapshot.data.products.data;
-        // let obs = svc.get();
+    }
 
-        // obs.subscribe(
-        //     (res) => this.products = res["data"],
-        //     (err) => console.log(err),
-        //     () => console.log("completed")
-        // );
+    refresh() {
+        let obs = this.svc.get();
+
+        obs.subscribe(
+            (res) => this.products = res["data"],
+            (err) => console.log(err),
+            () => console.log("completed")
+        );
+    }
+
+    onNotify(data) {
+        console.log(data);
+        this.refresh();
     }
 }
 

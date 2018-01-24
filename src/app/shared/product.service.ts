@@ -20,4 +20,8 @@ export class ProductService {
     save(product: any) {
         return this.http.post("https://exp-rest-api.herokuapp.com/api/products", product);
     }
+
+    delete(id:string){
+        return this.http.delete("https://exp-rest-api.herokuapp.com/api/products/" + id);
+    }
 }
