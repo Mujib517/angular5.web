@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -22,7 +22,7 @@ import { NewProductComponent } from './new-product/new-product.component';
 
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, HttpClientModule, SharedModule,AppRouterModule],
+    imports: [BrowserModule, FormsModule, HttpClientModule, ReactiveFormsModule, SharedModule, AppRouterModule],
     declarations: [AppComponent, HomeComponent,
         ProductListComponent, ProductComponent, UsersComponent, HeaderComponent, FooterComponent, AboutComponent, ContactComponent, ProductDetailComponent, SpecsComponent, ReviewsComponent, NewProductComponent],
     bootstrap: [AppComponent]
