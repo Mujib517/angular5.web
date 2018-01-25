@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../shared/product.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Product } from '../shared/models/product.model';
 //required,minlength,maxlength,pattern
 @Component({
   selector: 'app-new-product',
@@ -39,7 +40,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class NewProductComponent {
 
-  product: any = {};
+  product: Product = new Product();
   frm: FormGroup;
   success: boolean = false;
   error: boolean = false;
@@ -61,7 +62,7 @@ export class NewProductComponent {
       this.productSvc.save(this.frm.value)
         .subscribe(() => {
           this.success = true;
-          this.product = {};
+          this.frm.reset();
           this.router.navigate(["/products"]);
         }, err => this.error = true
         );

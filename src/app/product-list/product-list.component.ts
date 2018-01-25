@@ -3,6 +3,7 @@ import * as moment from 'moment';
 import { HttpClient } from "@angular/common/http";
 import { ProductService } from "../shared/product.service";
 import { ActivatedRoute } from "@angular/router";
+import { Product } from "../shared/models/product.model";
 
 @Component({
     selector: 'app-product-list',
@@ -18,12 +19,10 @@ import { ActivatedRoute } from "@angular/router";
             <app-product [product]="prd" (notify)="onNotify($event)"></app-product>
         </div>
     </div>
-   
-    
     `
 })
 export class ProductListComponent {
-    products: any[];
+    products: Product[];
 
     constructor(private svc: ProductService, private activatedRoute: ActivatedRoute) {
         this.products = this.activatedRoute.snapshot.data.products.data;

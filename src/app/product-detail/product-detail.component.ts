@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../shared/product.service';
 import { ActivatedRoute } from '@angular/router';
+import { Product } from '../shared/models/product.model';
 
 @Component({
   selector: 'app-product-detail',
@@ -20,16 +21,17 @@ import { ActivatedRoute } from '@angular/router';
   `
 })
 export class ProductDetailComponent {
-  product: any = {};
+  product: Product;
 
   constructor(private productSvc: ProductService, private route: ActivatedRoute) {
+    this.product = new Product();
 
     let id = this.route.snapshot.params.id;
 
     this.productSvc.getById(id)
       .subscribe(
       (res) => {
-        this.product = res;
+        this.product = <Product>res;
         this.productSvc.reviews = res["reviews"]
       },
       (err) => console.log(err)
