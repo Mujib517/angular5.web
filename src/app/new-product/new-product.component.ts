@@ -44,7 +44,10 @@ export class NewProductComponent {
   success: boolean = false;
   error: boolean = false;
 
+
+
   constructor(private productSvc: ProductService, private router: Router, private fb: FormBuilder) {
+
     this.frm = this.fb.group({
       brand: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
       model: ['', [Validators.required]],

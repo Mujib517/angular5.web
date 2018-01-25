@@ -9,7 +9,6 @@ export class ProductService {
     constructor(private http: HttpClient) { }
 
     get() {
-        //async 
         return this.http.get("https://exp-rest-api.herokuapp.com/api/products");
     }
 
@@ -21,7 +20,7 @@ export class ProductService {
         return this.http.post("https://exp-rest-api.herokuapp.com/api/products", product);
     }
 
-    delete(id:string){
+    delete(id: string) {
         return this.http.delete("https://exp-rest-api.herokuapp.com/api/products/" + id);
     }
 }
