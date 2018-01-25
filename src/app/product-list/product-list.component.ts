@@ -24,7 +24,9 @@ import { Product } from "../shared/models/product.model";
 export class ProductListComponent {
     products: Product[];
 
-    constructor(private svc: ProductService, private activatedRoute: ActivatedRoute) {
+    constructor(private svc: ProductService, private activatedRoute: ActivatedRoute) { }
+
+    ngOnInit() {
         this.products = this.activatedRoute.snapshot.data.products.data;
     }
 
