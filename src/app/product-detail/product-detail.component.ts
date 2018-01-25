@@ -20,12 +20,22 @@ import { Product } from '../shared/models/product.model';
 
   `
 })
-export class ProductDetailComponent {
+export class ProductDetailComponent implements OnInit {
   product: Product;
 
   constructor(private productSvc: ProductService, private route: ActivatedRoute) {
     this.product = new Product();
+  }
 
+  //ngDoCheck
+  //ngDestroy
+  //ngOnChanges
+  //ngOnContentInit
+  //ngAfterContentInit
+
+  //life cycle hook
+  ngOnInit() {
+    console.log("Getting data");
     let id = this.route.snapshot.params.id;
 
     this.productSvc.getById(id)
@@ -35,6 +45,8 @@ export class ProductDetailComponent {
         this.productSvc.reviews = res["reviews"]
       },
       (err) => console.log(err)
-      )
+      );
   }
+
+
 }
