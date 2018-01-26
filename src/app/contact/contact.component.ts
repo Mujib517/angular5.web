@@ -4,7 +4,9 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-contact',
   template: `
    <h1>Contact Page</h1>
-  `,
-  styles: []
+   <h1 [show]="showElement">THis is heading</h1>
+  `
 })
-export class ContactComponent {}
+export class ContactComponent {
+  showElement: boolean = true;
+}
